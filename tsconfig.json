@@ -1,0 +1,18 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    // Path alias config
+    "baseUrl": ".",
+    "paths": {
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "navigations/*": ["src/navigations/*"],
+      "screens/*": ["src/screens/*"],
+      "utils/*": ["src/utils/*"],
+      "store/*": ["src/store/*"],
+      "hooks/*": ["src/hooks/*"],
+      "api/*": ["src/api/*"]
+    }
+  }
+}
