@@ -1,9 +1,10 @@
-/**
- * @format
- */
+import 'react-native-gesture-handler';
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App'; // This should point to your main App.tsx file
 
-AppRegistry.registerComponent(appName, () => App);
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(<App />);

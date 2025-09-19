@@ -1,34 +1,27 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
+  presets: [
+    '@babel/preset-env',
+    ['@babel/preset-react', { runtime: 'automatic' }],
+    '@babel/preset-typescript',
+    '@babel/preset-flow', // handles Flow syntax in RN deps
+  ],
   plugins: [
-    [
-      'module-resolver',
-      {
-        extensions: [
-          '.ios.js',
-          '.android.js',
-          '.ios.jsx',
-          '.android.jsx',
-          '.js',
-          '.jsx',
-          '.json',
-          '.ts',
-          '.tsx',
-        ],
-        root: ['.'],
-        alias: {
-          // This needs to be mirrored in tsconfig.json
-          assets: './src/assets',
-          components: './src/components',
-          screens: './src/screens',
-          navigations: './src/navigations',
-          utils: './src/utils',
-          store: './src/store',
-          hooks: './src/hooks',
-          api: './src/api',
-        },
+    // Module resolver handles aliases
+    ['module-resolver', {
+      alias: {
+        'react-native$': 'react-native-web',
+
+        // your app-level aliases
+        'screens': './src/screens',
+        'components': './src/components',
+        'navigations': './src/navigations',
+        'utils': './src/utils',
+        'assets': './src/assets',
       },
-    ],
+    }],
+
+    // React Native Reanimated still needs this
     'react-native-reanimated/plugin',
   ],
 };
+
